@@ -12,19 +12,20 @@ def search():
 
 
 def search_users(args):
-    """Search users database
-
-    Parameters:
-        args: a dictionary containing the following search parameters:
-            id: string
-            name: string
-            age: string
-            occupation: string
-
-    Returns:
-        a list of users that match the search parameters
-    """
-
-    # Implement search here!
-
-    return USERS
+    param = [i for i in args]
+    value = [i.casefold() for i in args.values()]
+    result = []
+    if len(args) != 0:
+        for i in range(len(args)):
+            for item in USERS:
+                if param[i] == 'age':
+                    age = int(value[i])
+                    for ages in range(age - 1, age + 2):
+                        if str(ages) in str(item[param[i]]).casefold() and item not in result:
+                            result.append(item)
+                elif value[i] in str(item[param[i]]).casefold():
+                    if item not in result:
+                        result.append(item)
+    else:
+        return USERS
+    return result
