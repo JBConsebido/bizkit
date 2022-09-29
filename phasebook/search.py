@@ -1,7 +1,5 @@
 from flask import Blueprint, request
-
 from .data.search_data import USERS
-
 
 bp = Blueprint("search", __name__, url_prefix="/search")
 
