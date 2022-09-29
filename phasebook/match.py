@@ -3,7 +3,6 @@ from flask import Blueprint
 
 from .data.match_data import MATCHES
 
-
 bp = Blueprint("match", __name__, url_prefix="/match")
 
 
